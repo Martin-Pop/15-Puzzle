@@ -9,6 +9,12 @@ namespace _15Puzzle
             buttonManager = new ButtonManager(ButtonPanel);
 
             buttonManager.CreateButtons();
+            buttonManager.StartNewGame();
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            buttonManager.StartNewGame();
         }
     }
 }

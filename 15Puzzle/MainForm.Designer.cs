@@ -29,21 +29,35 @@
         private void InitializeComponent()
         {
             ButtonPanel = new Panel();
+            resetButton = new Button();
             SuspendLayout();
             // 
             // ButtonPanel
             // 
             ButtonPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ButtonPanel.Location = new Point(60, 57);
+            ButtonPanel.Location = new Point(65, 57);
             ButtonPanel.Name = "ButtonPanel";
             ButtonPanel.Size = new Size(600, 600);
             ButtonPanel.TabIndex = 0;
+            // 
+            // resetButton
+            // 
+            resetButton.AutoSize = true;
+            resetButton.Font = new Font("Segoe UI", 15F);
+            resetButton.Location = new Point(680, 661);
+            resetButton.Name = "resetButton";
+            resetButton.Size = new Size(42, 38);
+            resetButton.TabIndex = 1;
+            resetButton.Text = "R";
+            resetButton.UseVisualStyleBackColor = true;
+            resetButton.Click += resetButton_Click;
             // 
             // FiveteenPuzzle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(734, 711);
+            Controls.Add(resetButton);
             Controls.Add(ButtonPanel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -51,9 +65,11 @@
             Name = "FiveteenPuzzle";
             Text = "FiveteenPuzzle";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private Panel ButtonPanel;
+        private Button resetButton;
     }
 }
