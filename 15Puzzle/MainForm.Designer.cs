@@ -30,12 +30,13 @@
         {
             ButtonPanel = new Panel();
             resetButton = new Button();
+            TimeLable = new Label();
             SuspendLayout();
             // 
             // ButtonPanel
             // 
             ButtonPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ButtonPanel.Location = new Point(65, 57);
+            ButtonPanel.Location = new Point(75, 57);
             ButtonPanel.Name = "ButtonPanel";
             ButtonPanel.Size = new Size(600, 600);
             ButtonPanel.TabIndex = 0;
@@ -52,11 +53,21 @@
             resetButton.UseVisualStyleBackColor = true;
             resetButton.Click += resetButton_Click;
             // 
+            // TimeLable
+            // 
+            TimeLable.Location = new Point(325, 9);
+            TimeLable.Name = "TimeLable";
+            TimeLable.Size = new Size(100, 23);
+            TimeLable.TabIndex = 2;
+            TimeLable.Text = "00:00:00";
+            TimeLable.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FiveteenPuzzle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(734, 711);
+            Controls.Add(TimeLable);
             Controls.Add(resetButton);
             Controls.Add(ButtonPanel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -71,5 +82,6 @@
         #endregion
         private Panel ButtonPanel;
         private Button resetButton;
+        private Label TimeLable;
     }
 }

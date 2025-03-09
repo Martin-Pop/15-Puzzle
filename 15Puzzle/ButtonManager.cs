@@ -11,14 +11,21 @@ namespace _15Puzzle
 {
     public class ButtonManager
     {
+        // TOOD: Fix timer counting early on restart + make it look better
         private Panel _panel;
         private Button[] _buttons;
         private int _emptyIndex;
         private bool _isSolved = false;
-        public ButtonManager(Panel panel)
+
+        private MyTimer _timer;
+
+        private readonly Color DEFAULT_COLOR = Color.LightGray;
+        private readonly Color WIN_COLOR = Color.LightGreen;
+        public ButtonManager(Panel panel, MyTimer timer)
         {
             _panel = panel;
             _buttons = new Button[16];
+            _timer = timer;
         }
 
         private Button CreateNewButton(int id,int x, int y)
@@ -60,7 +67,8 @@ namespace _15Puzzle
                         if (IsSolved())
                         {
                             _isSolved = true;
-                            Recolor(Color.Green);
+                            Recolor(WIN_COLOR);
+                            _timer.Stop();
                         }
                     }
                 } 
@@ -155,7 +163,9 @@ namespace _15Puzzle
             _buttons[_emptyIndex].Visible = false;
             _buttons[_emptyIndex].Enabled = false;
 
-            Recolor(Color.LightGray);
+            Recolor(DEFAULT_COLOR);
+            _timer.RestartTimer();
+            _timer.Start();
         }
 
         public void CreateButtons()
